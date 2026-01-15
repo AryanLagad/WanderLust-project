@@ -20,3 +20,13 @@
 #        echo "ERROR: File not found."
 #    fi
 #fi
+
+
+file_to_find="../backend/.env.docker"
+FRONTEND_URL="http://localhost:5173"
+
+if [ -f "$file_to_find" ]; then
+  sed -i -e "s|FRONTEND_URL.*|FRONTEND_URL=\"${FRONTEND_URL}\"|g" "$file_to_find"
+else
+  echo "ERROR: File not found."
+fi
